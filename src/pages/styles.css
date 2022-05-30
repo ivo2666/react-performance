@@ -1,0 +1,27 @@
+
+.long_list .item-wrap {
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 40px;
+    width: 98%;
+    margin-left: 1%;
+    margin-bottom: 10px;
+}
+
+.long_list .item {
+    border: 1px solid black;
+    box-sizing: border-box;
+    padding: 10px;
+    width: 98%;
+    margin-left: 1%;
+    margin-bottom: 10px;
+}
+
+.long_list .list {
+    margin: 0;
+    overflow: auto;
+    padding: 10px;
+    box-sizing: border-box;
+    height: 800px;
+    overflow-y: auto;
+}
