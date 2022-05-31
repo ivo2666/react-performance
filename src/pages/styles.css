@@ -1,27 +1,58 @@
-
 .long_list .item-wrap {
-    border: 1px solid black;
-    box-sizing: border-box;
-    padding: 40px;
-    width: 98%;
-    margin-left: 1%;
-    margin-bottom: 10px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 40px;
+  width: 98%;
+  margin-left: 1%;
+  margin-bottom: 10px;
 }
 
 .long_list .item {
-    border: 1px solid black;
-    box-sizing: border-box;
-    padding: 10px;
-    width: 98%;
-    margin-left: 1%;
-    margin-bottom: 10px;
+  border: 1px solid black;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 98%;
+  margin-left: 1%;
+  margin-bottom: 10px;
 }
 
 .long_list .list {
-    margin: 0;
-    overflow: auto;
-    padding: 10px;
-    box-sizing: border-box;
-    height: 800px;
-    overflow-y: auto;
+  margin: 0;
+  overflow: auto;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 800px;
+  overflow-y: auto;
+}
+
+.image-wrap {
+  background-color: #ccc;
+  overflow: hidden;
+  position: relative;
+  max-width: 800px;
+  width: 800px;
+  height: 450px;
+  margin: 20px auto;
+}
+.image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+}
+
+.image.thumb {
+  opacity: 1;
+  filter: blur(10px);
+  transition: opacity 1s ease-in-out;
+  position: absolute;
+}
+
+.image.thumb.isLoaded {
+  opacity: 0;
+}
+
+.image.isLoaded {
+  transition: opacity 1s ease-in-out;
+  opacity: 1;
 }

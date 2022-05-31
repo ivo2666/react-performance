@@ -4,18 +4,12 @@ import "./App.css";
 import Durations from "./components/durations";
 import Nav from "./components/nav";
 import useDuration from "./hooks/useDuration";
+import LoadingImages from "./pages/loading-images";
+import LoadingImagesOpt from "./pages/loading-images-opt";
 import { LongListBadPerf } from "./pages/LongListBadPerf";
 import { LongListGoodPerf } from "./pages/LongListGoodPerf";
 import UnlessRenderingOpt from "./pages/unless-rendering-opt";
 import { UslessRendering } from "./pages/usless-rendering";
-
-function LoadingImagesSlow() {
-  return <h1>Loading images slow</h1>;
-}
-
-function LoadingImagesLazy() {
-  return <h1>Loading images lazy</h1>;
-}
 
 function App() {
   const { durations, handleRender } = useDuration();
@@ -24,9 +18,7 @@ function App() {
     <BrowserRouter>
       <div className="layout">
         <Nav />
-        <Durations
-        durations={durations}
-        />
+        <Durations durations={durations} />
         <Routes>
           <Route path="/" element={<Navigate to="/long-list_bad-perf" />} />
           <Route
@@ -40,10 +32,9 @@ function App() {
           <Route
             path="/useless-renders"
             element={
-              
               <Profiler id="unless-rendering" onRender={handleRender}>
                 <UslessRendering />
-                </Profiler>
+              </Profiler>
             }
           />
           <Route
@@ -51,11 +42,25 @@ function App() {
             element={
               <Profiler id="unless-rendering-opt" onRender={handleRender}>
                 <UnlessRenderingOpt />
-               </Profiler>
+              </Profiler>
             }
           />
-          <Route path="/loading-images-slow" element={<LoadingImagesSlow />} />
-          <Route path="/loading-images-lazy" element={<LoadingImagesLazy />} />
+          <Route
+            path="/loading-images"
+            element={
+              <Profiler id="loading-images" onRender={handleRender}>
+                <LoadingImages />
+              </Profiler>
+            }
+          />
+          <Route
+            path="/loading-images-opt"
+            element={
+              <Profiler id="loading-images-opt" onRender={handleRender}>
+                <LoadingImagesOpt />
+              </Profiler>
+            }
+          />
         </Routes>
       </div>
     </BrowserRouter>

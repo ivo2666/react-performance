@@ -10,7 +10,7 @@ export default function Nav() {
       <Link id="home-page-link" to="/useless-renders">
         Useless Rendering
       </Link>
-      <Link id="home-page-link" to="/loading-images-slow">
+      <Link id="home-page-link" to="/loading-images">
         Loading Images
       </Link>
     </div>

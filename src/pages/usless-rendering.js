@@ -15,7 +15,7 @@ const SubComponent = memo(({ count, increment }) => {
   );
 });
 
-export function UslessRendering({handleRender}) {
+export function UslessRendering() {
   const [count, setCount] = useState(0);
   const [items, setItems] = useState([]);
 
