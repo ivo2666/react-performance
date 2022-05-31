@@ -1,4 +1,5 @@
 import { useState } from "react"
+let renderId = 0;
 
 const useDuration = () => {
     const [lastId, setLastId] = useState("")
@@ -13,12 +14,24 @@ const useDuration = () => {
           commitTime, // when React committed this update
           interactions // the Set of interactions belonging to this update
       ) => {
+        // console.log(`id: ${id}`)
+          // console.log(`phase: ${phase}`)
+          // console.log(`actualDuration: ${actualDuration}`)
+          // console.log(`baseDuration: ${baseDuration}`)
+          // console.log(`startTime: ${startTime}`)
+          // console.log(`commitTime: ${commitTime}`)
+          // console.log(`interactions : ${interactions }`)
         if (phase !== "nested-update") {
           setDurations(durations => {
-            const newDuration = {phase, actualDuration: actualDuration.toFixed(2)};
+            const newDuration = {id: renderId, phase, actualDuration: actualDuration.toFixed(2)};
+            renderId++
             if(id !== lastId) {
               setLastId(id)
              return [newDuration] 
+            }
+
+            if (durations.length > 4) {
+              return [...durations.slice(0, 4), newDuration]
             }
             return [...durations, newDuration]
           })

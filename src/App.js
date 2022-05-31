@@ -41,15 +41,17 @@ function App() {
             path="/useless-renders"
             element={
               
-                <UslessRendering handleRender={handleRender}/>
+              <Profiler id="unless-rendering" onRender={handleRender}>
+                <UslessRendering />
+                </Profiler>
             }
           />
           <Route
             path="/useless-renders-opt"
             element={
-              // <Profiler id="unless-rendering-opt" onRender={handleRender}>
-                <UnlessRenderingOpt handleRender={handleRender}/>
-              // </Profiler>
+              <Profiler id="unless-rendering-opt" onRender={handleRender}>
+                <UnlessRenderingOpt />
+               </Profiler>
             }
           />
           <Route path="/loading-images-slow" element={<LoadingImagesSlow />} />

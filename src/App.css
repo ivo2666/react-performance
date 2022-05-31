@@ -58,6 +58,11 @@ a {
   font-family: "roboto";
 }
 
+.durations {
+  height: 200px;
+  overflow-y: auto;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
