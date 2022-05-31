@@ -1,3 +1,62 @@
+# Optimize Performance of your React App
+
+Some ways through which developers can solve the performance related problems in React based web app. 
+
+# Optimizing list rendering with React Virtualized List
+
+ Instead of rendering the whole bunch of components, it lets you render just 30 components.
+Or 40, or 10. Whatever the number, at the end of the day you will render a small subset of the components.
+
+"react-window" is popular library, that help us to do that. //https://github.com/bvaughn/react-window
+
+# Optimizing React list performance by using correct keys for components
+
+React uses the Key attribute to decide which elements can be reused for the next rendering phase.
+ These keys are important for updating elements in dynamic lists.
+
+# Improving the app’s loading time by lazy loading Images
+Images are the heaviest resources that your user may never see until a web page is fully loaded.
+They might degrade React app performance.
+
+In order to improve app-loading time, a rule of thumb is to load the images
+ at the moment of need instead of loading them while the app’s page is loading.
+This is referred to as Lazy loading of Images. 
+
+- Lazy Loading of Images in a React app can be implemented
+by using "React Lazyload library". // https://github.com/twobin/react-lazyload
+
+- Browser-level image lazy-loading for the web
+https://web.dev/browser-level-image-lazy-loading/
+
+- Lazy Loading Images in React
+https://dev.to/shubhamreacts/progressively-loading-images-in-react-40lg
+
+
+# Optimizing useless Renders in React Application (Wasted Renders)
+
+React leverages a diff algorithm in order to minimize the operations to be done at nodes.
+ However, the algorithm in its own sense is not perfect.
+ React goes on rendering the whole subtrees instead of rendering the relevant component.
+ When these unnecessary renders are left idle in a React application,
+ they can eat up unnecessary CPU and memory resources which can be fatal for your React application.
+
+ - Detecting unnecessary rendering of components by using Profiler API.
+  // https://reactjs.org/docs/profiler.html#gatsby-focus-wrapper
+
+  - React.memo is a higher order component. If your component renders the same result given the same props,
+   you can wrap it in a call to React.memo for a performance boost in some cases by memoizing the result.
+   This means that React will skip rendering the component, and reuse the last rendered result.
+   // https://reactjs.org/docs/react-api.html#reactmemo
+
+- (useCallback) Every time a component re-renders, its functions get recreated. Because of something called "referential equality".
+ To fix this, we can use the useCallback hook to prevent the function from being recreated unless necessary.
+ https://www.w3schools.com/react/react_usecallback.asp
+
+
+# React Performance – 13 Ways to Optimize Performance of your React App 
+
+https://www.simform.com/blog/react-performance/#section3
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
